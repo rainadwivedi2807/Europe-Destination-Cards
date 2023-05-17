@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&family=Bruno+Ace+SC&family=Rajdhani:wght@300&display=swap');
+
+*,*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bruno Ace SC';
+    scroll-behavior: smooth;
+    scrollbar-color: black;
+    text-transform: capitalize;
+    letter-spacing: 6px;
+
+}
+
+#wrapper{
+    overflow:auto;
+    height: 100%;
+    width:100%;
+    background:linear-gradient(to bottom right,#dcbda9,#dacece,#ae836c,#826150);
+}
+/*
+.inner-cursor{
+    position:absolute;
+    display:none;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#333;
+    z-index:1;
+
+}
+.outer-cursor{
+    position:absolute;
+    display:none;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    border:2px solid black;
+    
+    z-index:1;
+    transition-duration:480ms;
+    transition-timing-function: ease-out;
+
+}
+*/
+.container{
+    height:100%;
+    width:1200px;
+    margin:0 auto;
+    padding:80px;
+}
+
+.container h1{
+    margin:25px;
+    color: rgb(27, 26, 26);
+    text-align: center;
+    font-size:4rem;
+    font-weight:10px;
+    color:black;   
+}
+
+h3{
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 100;
+    color:black;
+    font-weight:thin;
+    text-shadow: #333;    
+}
+
+.underline{
+    width:87%;
+    height:2.5px;
+    float:center;
+    background-color:#a6694d;
+    margin-right:-10px;
+    margin-bottom:100px;
+    margin-left: 80px;
+    border-radius:60%; 
+    margin-top: 2px;
+    box-shadow: 5px 5px 8px  #333;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.card{
+    width: 32%;
+    position: relative; /* kuki mujhe image and text ko overlap karwana hai toh mujhe image ki position relative rakhni padhegi jisse ki me text ko absolute position kar saku image ke respect me*/
+    margin-bottom:20px;
+    aspect-ratio: 1;
+    border-radius:12px;
+    overflow:hidden;
+    transition:transform .5s;
+}
+
+.card img{
+    height: 100%; /*width and height will be equal for square shape*/
+    width:100%;
+    filter:grayscale(100%);
+    box-shadow:0 0 20px #333;
+    object-fit: cover;
+   
+}
+
+.card:hover{
+    transition: 0.5s;
+    scale:1.03;
+    cursor:pointer;  
+    transform: translateY(-10px);
+    filter:drop-shadow(5px 5px 15px #333);     
+}
+
+.card::before{
+    content:" ";
+    position:absolute;
+    transform:scaleY(0.75);
+    transform-origin:bottom;
+    transition:transform 0.5s;
+
+}
+
+.card:hover::before{
+    transform:scaleY(1.1);
+
+}
+
+.card:hover img{
+    filter:grayscale(0%);
+}
+
+.card figcaption{
+    position:absolute; /* text and image ko overlap kar dega*/
+    bottom:70%;
+    top:5%;
+    text-align:center;
+    width:100%;
+    height:10%;
+    font-size:25px;
+    font-weight:600;
+    color:#ffff;
+    opacity:0;
+    text-transform: capitalize;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(30deg, rgba(32, 32, 32, 0.5) 10%, rgba(75, 74, 74, 0)90%);
+    transition: 0.5s ;
+
+} 
+
+.card:hover figcaption{
+    opacity:1;
+    color:rgb(0, 0, 0);
+    transform:scale(1.08);   
+}
+
+.card:hover img{
+    opacity:0.8;
+}
+
+.card .area{
+    position:absolute; /* text and image ko overlap kar dega*/
+    bottom:0;
+    text-align:center;
+    width:100%;
+    height:20%;
+    font-size:20px;
+    font-weight:thin;
+    color:#ffff;
+    opacity:0;
+    text-transform: capitalize;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 15%, rgba(67, 63, 63, 0)100%);
+    transition: 0.5s ;
+} 
+
+.card:hover .area{
+    opacity:10;
+    color:white;
+    
+}
+
+@media screen and (max-width: 800px){
+    .wrapper{
+        width: 500px;
+    }
+    .gallery{
+        flex-wrap: wrap;
+        max-width:75rem;
+    }
+    .card{
+        width:100%;
+        aspect-ratio: 1;
+    }
+    
+    .container h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    .card{
+        width:22%;
+        object-fit: cover;
+    }
+   
+    .card figcaption{
+        font-size: 18px;
+    }
+    
+    .card .area{
+        font-size: 18px;
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 15%, rgba(67, 63, 63, 0)100%);
+        margin-bottom: 2px;
+    }
+    .underline{
+        float:center;
+        width:83%;
+        height: 2.5px;
+        margin-right:-10px;
+        margin-bottom:130px;
+        margin-left: 100px;
+        border-radius:50%; 
+        margin-top: 2px;
+    }
+}
+
+
+ 
